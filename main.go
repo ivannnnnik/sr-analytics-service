@@ -50,32 +50,6 @@ func main() {
 
 	log.Println("Database: Postgresql is connected!")
 
-	// Inicialized DB
-	questionAddr := os.Getenv("QUESTION_SERVICE_ADDR")
-	questionClient, err := client.NewQuestionClient(questionAddr)
-	if err != nil {
-		log.Fatalf("question client: %v", err)
-	}
-	defer questionClient.Close()
 
-	// DI
-	studyRepo := repository.NewStudyRepository(db)
-	studyService := service.NewStudyService(studyRepo, questionClient)
-	studyHandler := handler.NewStudyHandler(studyService)
-
-	// gRPC Server
-	lis, err := net.Listen("tcp", ":50051")
-	if err != nil {
-		log.Fatal("Error run grpc server!")
-	}
-
-	grpcServer := grpc.NewServer()
-
-	study1.RegisterStudyServiceServer(grpcServer, studyHandler)
-
-	reflection.Register(grpcServer)
-
-	log.Println("gRPC server listening on :50051")
-	grpcServer.Serve(lis)
 
 }
