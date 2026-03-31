@@ -3,19 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
-	"net"
 	"os"
 
-	study1 "github.com/ivannnnnik/sr-proto/gen/go/study/v1"
-	"github.com/ivannnnnik/sr-study-service/internal/handler"
-	"github.com/ivannnnnik/sr-study-service/internal/repository"
-	"github.com/ivannnnnik/sr-study-service/internal/service"
-	client 	"github.com/ivannnnnik/sr-study-service/internal/client"
-	_ "github.com/jackc/pgx/v5/stdlib"
-	"github.com/jmoiron/sqlx"
 	"github.com/joho/godotenv"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/reflection"
 )
 
 func main() {
