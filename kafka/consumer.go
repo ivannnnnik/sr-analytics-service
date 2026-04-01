@@ -47,7 +47,6 @@ func (c *Consumer) Run(ctx context.Context) {
 				c.logger.Error("read message: %w", err)
 			}
 
-			var event StudyEvent
 			if err := json.Unmarshal(msg.Value, &event); err != nil{
 				c.logger.Error("unmarshall event: %w", err)
 			}
