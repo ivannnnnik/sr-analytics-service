@@ -36,6 +36,7 @@ func NewConsumer(brokers, groupID, topic string, logger *slog.Logger)(*Consumer,
 	}, nil
 }
 
+
 func (c *Consumer) Run(ctx context.Context) {
 	for {
 		select {
@@ -51,6 +52,7 @@ func (c *Consumer) Run(ctx context.Context) {
 				c.logger.Error("unmarshall event: %w", err)
 			}
 
+			
 			c.logger.Info(
 				"study event received", 
 				"user_id", event.UserID,
