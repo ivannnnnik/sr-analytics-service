@@ -39,6 +39,8 @@ func NewConsumer(brokers, groupID, topic string, logger *slog.Logger)(*Consumer,
 
 func (c *Consumer) Run(ctx context.Context) {
 	for {
+
+		
 		select {
 		case <- ctx.Done():
 			return
