@@ -10,6 +10,7 @@ import (
 
 func main() {
 	// Env
+	
 	_ = godotenv.Load() // не fatal — в Docker envs приходят через environment
 
 	// Database
